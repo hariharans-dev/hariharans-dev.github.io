@@ -64,7 +64,7 @@ $(document).ready(function () {
 
 document.addEventListener("visibilitychange", function () {
   if (document.visibilityState === "visible") {
-    document.title = "Portfolio | Jigar Sable";
+    document.title = "Portfolio | Hari  ";
     $("#favicon").attr("href", "assets/images/favicon.png");
   } else {
     document.title = "Come Back To Portfolio";
@@ -178,7 +178,7 @@ VanillaTilt.init(document.querySelectorAll(".tilt"), {
 // window.onload = fadeOut;
 // pre loader end
 
-// disable developer mode
+// di  developer mode
 document.onkeydown = function (e) {
   if (e.keyCode == 123) {
     return false;
@@ -196,7 +196,6 @@ document.onkeydown = function (e) {
     return false;
   }
 };
-
 
 /* ===== SCROLL REVEAL ANIMATION ===== */
 const srtop = ScrollReveal({
