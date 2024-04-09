@@ -41,24 +41,7 @@ $(document).ready(function () {
   });
 
   // <!-- emailjs to mail contact form data -->
-  $("#contact-form").submit(function (event) {
-    emailjs.init("default_service");
 
-    emailjs
-      .sendForm("contact_service", "My Default Template", "#contact-form")
-      .then(
-        function (response) {
-          console.log("SUCCESS!", response.status, response.text);
-          document.getElementById("contact-form").reset();
-          alert("Form Submitted Successfully");
-        },
-        function (error) {
-          console.log("FAILED...", error);
-          alert("Form Submission Failed! Try Again");
-        }
-      );
-    event.preventDefault();
-  });
   // <!-- emailjs to mail contact form data -->
 });
 
@@ -242,3 +225,47 @@ srtop.reveal(".experience .timeline .container", { interval: 400 });
 /* SCROLL CONTACT */
 srtop.reveal(".contact .container", { delay: 400 });
 srtop.reveal(".contact .container .form-group", { delay: 400 });
+
+function handleSubmit(event) {
+  // Prevent the default form submission behavior
+  event.preventDefault();
+
+  // Get form data
+  const formData = new FormData(event.target);
+  const email = formData.get("email");
+  const name = formData.get("name");
+  const phone = formData.get("phone");
+  const message = formData.get("message");
+
+  // Construct the data to be sent
+  const data = {
+    email: email,
+    name: name,
+    phone: phone,
+    message: message,
+  };
+
+  // Send a POST request using Axios
+  axios.post(
+    "https://nnrr0d1or5.execute-api.ap-south-1.amazonaws.com/api-contact/post-form-data", // Specify the URL to post data to
+    data, // Pass the data object
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  )
+    .then((response) => {
+      console.log("Response received:", response.data);
+    })
+    .catch((error) => {
+      console.error(error);
+      // Handle errors
+    });
+}
+
+// Get the form element
+const form = document.getElementById("contact-form");
+
+// Attach an event listener for the form's submit event
+form.addEventListener("submit", handleSubmit);
