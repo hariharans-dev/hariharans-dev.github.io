@@ -241,22 +241,29 @@ function handleSubmit(event) {
   const data = {
     email: email,
     name: name,
-    phone: phone,
+    // phone: phone,
+    "access-key": "F#o8b:o)TIQdaF$sD46f0b0BBf.5g?^)",
     message: message,
   };
 
   // Send a POST request using Axios
-  axios.post(
-    "https://nnrr0d1or5.execute-api.ap-south-1.amazonaws.com/api-contact/post-form-data", // Specify the URL to post data to
-    data, // Pass the data object
-    {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  )
+  axios
+    .post(
+      "https://9s65arqoo9.execute-api.ap-south-1.amazonaws.com/stage/formdata", // Specify the URL to post data to
+      data, // Pass the data object
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
     .then((response) => {
       console.log("Response received:", response.data);
+      const contactSection = document.getElementById("contact");
+      contactSection.style.display = "none";
+
+      const successSection = document.getElementById("success-section"); 
+      successSection.style.display = "block";
     })
     .catch((error) => {
       console.error(error);
