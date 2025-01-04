@@ -242,7 +242,7 @@ function handleSubmit(event) {
     email: email,
     name: name,
     // phone: phone,
-    "access-key": access_key,
+    "access_key": access_key,
     message: message,
   };
 
