@@ -236,13 +236,13 @@ function handleSubmit(event) {
   const name = formData.get("name");
   const phone = formData.get("phone");
   const message = formData.get("message");
+  const access_key = "ltfvzxebsvprtha";
 
-  // Construct the data to be sent
   const data = {
     email: email,
     name: name,
     // phone: phone,
-    "access-key": "F#o8b:o)TIQdaF$sD46f0b0BBf.5g?^)",
+    "access-key": access_key,
     message: message,
   };
 
@@ -262,7 +262,7 @@ function handleSubmit(event) {
       const contactSection = document.getElementById("contact");
       contactSection.style.display = "none";
 
-      const successSection = document.getElementById("success-section"); 
+      const successSection = document.getElementById("success-section");
       successSection.style.display = "block";
     })
     .catch((error) => {
