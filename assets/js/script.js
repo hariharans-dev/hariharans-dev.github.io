@@ -240,15 +240,17 @@ function handleSubmit(event) {
   const data = {
     email: email,
     name: name,
-    "access_key": access_key,
+    access_key: access_key,
     message: message,
   };
+
+  console.log(data);
 
   // Send a POST request using Axios
   axios
     .post(
       "https://9s65arqoo9.execute-api.ap-south-1.amazonaws.com/stage/formdata", // Specify the URL to post data to
-      data, // Pass the data object
+      data,
       {
         headers: {
           "Content-Type": "application/json",
@@ -256,7 +258,7 @@ function handleSubmit(event) {
       }
     )
     .then((response) => {
-      console.log("Response received:", response.data);
+      console.log("Response received:", response);
       const contactSection = document.getElementById("contact");
       contactSection.style.display = "none";
 
