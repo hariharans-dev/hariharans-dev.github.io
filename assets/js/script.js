@@ -234,14 +234,12 @@ function handleSubmit(event) {
   const formData = new FormData(event.target);
   const email = formData.get("email");
   const name = formData.get("name");
-  const phone = formData.get("phone");
   const message = formData.get("message");
   const access_key = "ltfvzxebsvprtha";
 
   const data = {
     email: email,
     name: name,
-    // phone: phone,
     "access_key": access_key,
     message: message,
   };
